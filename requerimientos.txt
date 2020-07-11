@@ -1,0 +1,23 @@
+Cada pregunta tiene un peso específico en el examen que determina la nota.
+ 
+La forma de calcular la nota puede ser:
+restar n puntos al total del estudiante para formar la nota final. Ejemplo: si el examen tiene 16 puntos y n = 6, 
+un estudiante que sacó 14 tiene 14 - 6 = 8. 
+utilizar una regla de 3 simple. En el mismo caso anterior, para un examen que tiene 16 puntos en total, 
+si el estudiante tiene 14 puntos, se calcula 14 * 10 / 16 = 8,75 ó 9
+tener una tabla de conversión por los puntos. Ej: 16 => 10, 15 => 8, 14 => 6, 13 => 4... (en este caso por 14 puntos sobre 16, el mismo estudiante sacaría 6)
+tener un conjunto de criterios y tomar la nota más alta
+tener un conjunto de criterios y considerar el promedio
+
+Algunos exámenes se aprueban con 4 y otros con 6. Al modelar recuerde siempre que un mismo parcial debe poder ser resuelto 
+por muchos estudiantes.
+
+
+Se pide:
+1.	Generar los casos de prueba para determinar si aprobó un estudiante un examen.
+2.	Plantee los cambios necesarios para incorporar los siguientes agregados.
+a.	un estudiante puede aprobar un examen sólo si tiene determinadas preguntas correctamente contestadas.
+b.	para obtener la sumatoria existen tres opciones: 
+i.	las preguntas mal contestadas no suman, 
+ii.	restan la mitad de su valor, o bien 
+iii.	descuenta 1 punto del total.
