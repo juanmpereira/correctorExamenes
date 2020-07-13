@@ -18,11 +18,14 @@ public class Ventana1 extends JFrame {
 	private JPanel contentPane;
 	JTextField respuesta3;
 	JLabel preguntaMultipleChoice;
-	Choice Respuesta2;
+	Choice respuesta2;
 	Button buttonEnviado;
-	JLabel PreguntaVoF;
-	Choice Respuesta1;
+	JLabel preguntaVoF;
+	static Choice respuesta1;
 	JLabel preguntaADesarrrollar;
+	static String respuestaObtenidaVoF;
+	static String respuestaObtenidaChoice;
+	static String respuestaObtenidaDesarrollo;
 
 	
 	public Ventana1() {
@@ -36,31 +39,39 @@ public class Ventana1 extends JFrame {
 		preguntaMultipleChoice = new JLabel("2.");
 		preguntaMultipleChoice.setBounds(10, 73, 330, 34);
 		contentPane.add(preguntaMultipleChoice);
+		preguntaMultipleChoice.setText("cual de los siguientes paises limita con argentina?");
 		
-		Respuesta2 = new Choice();
-		Respuesta2.setBounds(10, 118, 162, 20);
-		contentPane.add(Respuesta2);
+		respuesta2 = new Choice();
+		respuesta2.setBounds(10, 118, 162, 20);
+		contentPane.add(respuesta2);
+		respuesta2.add("chile");
+		respuesta2.add("canada");
+		respuesta2.add("guayana francesa");
 		
 		buttonEnviado = new Button("enviarRespuestas");
 		buttonEnviado.setBounds(127, 239, 146, 22);
 		contentPane.add(buttonEnviado);
 		buttonEnviado.addActionListener(this::convertButtonActionPerformed);
 		
-		PreguntaVoF = new JLabel("1. V o F");
-		PreguntaVoF.setBounds(10, 11, 330, 30);
-		contentPane.add(PreguntaVoF);
+		preguntaVoF = new JLabel("1. V o F");
+		preguntaVoF.setBounds(10, 11, 330, 30);
+		contentPane.add(preguntaVoF);
+		preguntaVoF.setText("voy a aprobar el parcial?");
 		
 		JLabel titulo = DefaultComponentFactory.getInstance().createTitle("Primer Parcial");
 		titulo.setBounds(137, 0, 136, 14);
 		contentPane.add(titulo);
 		
-		Respuesta1 = new Choice();
-		Respuesta1.setBounds(10, 47, 162, 20);
-		contentPane.add(Respuesta1);
+		respuesta1 = new Choice();
+		respuesta1.setBounds(10, 47, 162, 20);
+		contentPane.add(respuesta1);
+		respuesta1.add("Verdadero"); 
+		respuesta1.add("Falso");
 		
 		preguntaADesarrrollar = new JLabel("3. Desarrollo");
 		preguntaADesarrrollar.setBounds(10, 144, 322, 34);
 		contentPane.add(preguntaADesarrrollar);
+		preguntaADesarrrollar.setText("comente sobre las 5 necesidades basicas del hombre");
 		
 		respuesta3 = new JTextField();
 		respuesta3.setText("Escriba su Respuesta");
@@ -70,11 +81,16 @@ public class Ventana1 extends JFrame {
 	}
 	
 	private void convertButtonActionPerformed(java.awt.event.ActionEvent evt) {
-	
+		respuestaObtenidaVoF = respuesta1.getSelectedItem();
+		respuestaObtenidaChoice = respuesta2.getSelectedItem();
+		respuestaObtenidaDesarrollo = respuesta3.getText();
+		System.out.print(respuestaObtenidaVoF);
+		System.out.print(respuestaObtenidaChoice);
+		System.out.print(respuestaObtenidaDesarrollo);
 	}
 	
 	public static void main(String[] args) {
-		List<Ejercicio> listaEjercicios = new ArrayList();
+		List<Ejercicio> listaEjercicios = new ArrayList<Ejercicio>();
 		Ejercicio ejercicio1 = new Ejercicio(4);
 		Ejercicio ejercicio2 = new Ejercicio(2);
 		Ejercicio ejercicio3 = new Ejercicio(6);

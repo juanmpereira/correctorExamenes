@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Examenes {
 		List<Ejercicio> ejercicios;
-		List<Alumno> alumnos;
 		Nota notaAlumno;
 		CriterioCorreccion criterio;
 		CriterioErrores modificadorErrores;
@@ -21,13 +20,6 @@ public class Examenes {
 			this.ejercicios = ejercicios;
 		}
 		
-		public List<Alumno> getAlumnos() {
-			return alumnos;
-		}
-		
-		public void setAlumnos(List<Alumno> alumnos) {
-			this.alumnos = alumnos;
-		}
 		
 		public CriterioCorreccion getCriterio() {
 			return criterio;

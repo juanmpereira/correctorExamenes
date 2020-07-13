@@ -18,15 +18,10 @@ public class Nota {
 		return notaParcial;
 	}
 
-	public void setNotaParcial(double notaParcial) {
-		this.notaParcial = notaParcial;
-	}
-
 	public void calcularResultados(List<Ejercicio> ejercicios,
 			CriterioErrores modificadorErrores) {
 		 	notaParcial = ejercicios.stream().mapToDouble(e -> e.getValorUnitario(modificadorErrores)).sum();
-		 	puntajeMaximo = ejercicios.stream().mapToDouble(e->e.getPuntos()).sum();
-		 	
+		 	puntajeMaximo = ejercicios.stream().mapToDouble(e->e.getPuntos()).sum();	 	
 	}
 	
 	
