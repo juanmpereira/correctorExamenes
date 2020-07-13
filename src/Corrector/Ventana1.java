@@ -23,10 +23,14 @@ public class Ventana1 extends JFrame {
 	JLabel preguntaVoF;
 	static Choice respuesta1;
 	JLabel preguntaADesarrrollar;
-	static String respuestaObtenidaVoF;
-	static String respuestaObtenidaChoice;
-	static String respuestaObtenidaDesarrollo;
-
+	 String respuestaObtenidaVoF;
+	 String respuestaObtenidaChoice;
+	 String respuestaObtenidaDesarrollo;
+	 static Ejercicio ejercicio1;
+	static Ejercicio ejercicio2;
+	static Ejercicio ejercicio3;
+	static Alumno alumnoJuan;
+	static Examenes examen1;
 	
 	public Ventana1() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -84,22 +88,33 @@ public class Ventana1 extends JFrame {
 		respuestaObtenidaVoF = respuesta1.getSelectedItem();
 		respuestaObtenidaChoice = respuesta2.getSelectedItem();
 		respuestaObtenidaDesarrollo = respuesta3.getText();
-		System.out.print(respuestaObtenidaVoF);
-		System.out.print(respuestaObtenidaChoice);
-		System.out.print(respuestaObtenidaDesarrollo);
+		ejercicio1.setRespuestaObtenida(respuestaObtenidaVoF);
+		ejercicio2.setRespuestaObtenida(respuestaObtenidaChoice);
+		ejercicio3.setRespuestaObtenida(respuestaObtenidaDesarrollo);
+
+		
+		System.out.print(examen1.obtenerPuntaje(alumnoJuan));
 	}
 	
 	public static void main(String[] args) {
 		List<Ejercicio> listaEjercicios = new ArrayList<Ejercicio>();
-		Ejercicio ejercicio1 = new Ejercicio(4);
-		Ejercicio ejercicio2 = new Ejercicio(2);
-		Ejercicio ejercicio3 = new Ejercicio(6);
+		ejercicio1 = new Ejercicio(4);
+		ejercicio1.setRespuestaCorrecta("Verdadero");
+		ejercicio2 = new Ejercicio(2);
+		ejercicio2.setRespuestaCorrecta("chile");
+		ejercicio3 = new Ejercicio(6);
+		ejercicio3.setRespuestaCorrecta("no tengo idea");//como pongo respuesta correcta aca
+		
+		
 		listaEjercicios.add(ejercicio1);
 		listaEjercicios.add(ejercicio2);
 		listaEjercicios.add(ejercicio3);
 		Nota nota1 = new Nota();
-		Examenes examen1 = new Examenes(nota1);
+		examen1 = new Examenes(nota1);
 		examen1.setEjercicios(listaEjercicios);
+		examen1.setCriterio(new ReglaDeTres());
+		examen1.setCriterioErrores(new ModificadorNulo());
+		alumnoJuan = new Alumno();
 		
 		EventQueue.invokeLater(() -> new Ventana1().setVisible(true));
 	}

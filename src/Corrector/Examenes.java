@@ -20,6 +20,9 @@ public class Examenes {
 			this.ejercicios = ejercicios;
 		}
 		
+		public void setCriterioErrores(CriterioErrores criterio) {
+			modificadorErrores = criterio;
+		}
 		
 		public CriterioCorreccion getCriterio() {
 			return criterio;
