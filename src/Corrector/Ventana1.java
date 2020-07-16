@@ -8,9 +8,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Choice;
 import java.awt.Button;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+
+import javafx.scene.control.Alert;
+
 import javax.swing.JTextField;
 
 public class Ventana1 extends JFrame {
@@ -31,6 +36,7 @@ public class Ventana1 extends JFrame {
 	static Ejercicio ejercicio3;
 	static Alumno alumnoJuan;
 	static Examenes examen1;
+	Double notaAprobacion = 4.00;
 	
 	public Ventana1() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -91,9 +97,18 @@ public class Ventana1 extends JFrame {
 		ejercicio1.setRespuestaObtenida(respuestaObtenidaVoF);
 		ejercicio2.setRespuestaObtenida(respuestaObtenidaChoice);
 		ejercicio3.setRespuestaObtenida(respuestaObtenidaDesarrollo);
-
+		double puntajeExamen = examen1.obtenerPuntaje(alumnoJuan);
+		String aprobacion;
+		if (puntajeExamen >= notaAprobacion) {
+			aprobacion = "aprobado";
+		}
+		else 
+			aprobacion = "desaprobado";
 		
-		System.out.print(examen1.obtenerPuntaje(alumnoJuan));
+		 JOptionPane.showMessageDialog(null, "tu nota es: " + puntajeExamen + " y el examen esta: " + aprobacion);
+		 
+		
+		
 	}
 	
 	public static void main(String[] args) {
